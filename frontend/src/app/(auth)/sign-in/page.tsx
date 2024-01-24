@@ -1,27 +1,27 @@
 import Image from "next/image";
-import img from "../../public/imgs/login.png";
-import ins from "../../public/imgs/Instagram_logo.svg.png";
-import gg from "../../public/imgs/gg.png";
+import Link from 'next/link';
+import img from "../../../../public/imgs/login.png";
+import ins from "../../../../public/imgs/Instagram_logo.svg.png";
+import gg from "../../../../public/imgs/gg.png";
 
-export default function Home() {
+export default function SignIn() {
   return (
-    <main className="container flex justify-center items-center my-14">
-      {/* <div className="flex m-auto"> */}
+    <main className="flex">
       <Image src={img} alt="anh" height={500} width={300} className="hidden md:block" />
-      <div className="ml-8">
-        <div className="border flex flex-col px-8 py-4">
+      <div className="ml-8 ">
+        <div className="shadow border flex flex-col px-8 py-4">
           <div className="flex justify-center p-4">
             <Image src={ins} alt="" height={50} width={175} />
           </div>
           <input
             type="text"
             placeholder="Phone number, username or email"
-            className="h-10 w-72 text-xs placeholder:text-black border p-2 bg-stone-50 my-1 outline-0"
+            className="h-10 w-72 text-xs placeholder:text-black border p-2 bg-stone-50 my-1 outline-zinc-300"
           />
           <input
-            type="text"
+            type="password"
             placeholder="Password"
-            className="h-10 w-72 text-xs placeholder:text-black border p-2 bg-stone-50 my-1 outline-0"
+            className="h-10 w-72 text-xs placeholder:text-black border p-2 bg-stone-50 my-1 outline-zinc-300"
           />
           <button className="bg-sky-500 text-white rounded-lg py-1 my-2">
             Log in
@@ -37,11 +37,10 @@ export default function Home() {
             Forgot password?
           </button>
         </div>
-        <div className="border flex items-center justify-center text-sm mt-2 p-3">
-          Don't have an account? <span className="text-sky-600 font-medium cursor-pointer ml-1">Sign up</span>
+        <div className="shadow border flex items-center justify-center text-sm mt-2 p-3">
+          Don't have an account? <Link href='sign-up' className="text-sky-600 font-medium cursor-pointer ml-1">Sign up</Link>
         </div>
       </div>
-      {/* </div> */}
     </main>
   );
 }
