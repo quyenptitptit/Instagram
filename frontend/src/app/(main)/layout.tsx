@@ -5,8 +5,15 @@ import Link from "next/link";
 import { GrFavorite } from "react-icons/gr";
 import { GoHomeFill } from "react-icons/go";
 import { MdOutlineExplore } from "react-icons/md";
-import { CgAddR } from "react-icons/cg";
 import { RiMessengerLine } from "react-icons/ri";
+import ig2 from "../../../public/imgs/Logo-Instagram.png";
+import ItemNavbar from "@/components/ItemNavbar";
+import { CgAddR } from "react-icons/cg";
+import { IconType } from "react-icons";
+import { FaThreads } from "react-icons/fa6";
+import { AiOutlineMenu } from "react-icons/ai";
+import { GrInstagram } from "react-icons/gr";
+import { IoSearch } from "react-icons/io5";
 
 export default function MainLayout({
   children,
@@ -16,22 +23,68 @@ export default function MainLayout({
   return (
     <html lang="en">
       <body className="no-scrollbar">
-        <header className="sticky top-0 z-10 bg-white justify-between items-center p-3 hidden max-md:flex border-b">
-          <Link href="">
-            <Image src={ig} height={30} width={100} alt="" />
-          </Link>
-          <div className="flex items-center">
-            <input
-              type="text"
-              placeholder="Search"
-              className="placeholder:capitalize placeholder:font-light bg-gray-200 py-1 px-4 mr-4 rounded-md outline-0"
+        <header className="w-56 max-xl:w-16 max-md:hidden border-r flex flex-col h-[100vh] fixed justify-between">
+          <div className="w-full">
+            <div className="h-14 w-full flex items-center px-4 my-4">
+              <Image
+                src={ig2}
+                alt="anh"
+                width={120}
+                height={20}
+                className="max-xl:hidden"
+              />
+              <GrInstagram className="hidden max-xl:block text-[160%]" />
+            </div>
+            <ItemNavbar
+              selected={true}
+              icon={GoHomeFill as IconType}
+              name="Home"
             />
-            <button>
-              <GrFavorite className="text-[140%] hover:text-[150%] transition w-10" />
-            </button>
+            <ItemNavbar
+              selected={false}
+              icon={IoSearch as IconType}
+              name="Search"
+            />
+            <ItemNavbar
+              selected={false}
+              icon={MdOutlineExplore as IconType}
+              name="Explore"
+            />
+            <ItemNavbar
+              selected={false}
+              icon={RiMessengerLine as IconType}
+              name="Messages"
+            />
+            <ItemNavbar
+              selected={false}
+              icon={GrFavorite as IconType}
+              name="Notifictions"
+            />
+            <ItemNavbar
+              selected={false}
+              icon={CgAddR as IconType}
+              name="Create"
+            />
+            <ItemNavbar
+              selected={false}
+              icon={CgAddR as IconType}
+              name="profile"
+            />
+          </div>
+          <div>
+            <ItemNavbar
+              selected={false}
+              icon={FaThreads as IconType}
+              name="threads"
+            />
+            <ItemNavbar
+              selected={false}
+              icon={AiOutlineMenu as IconType}
+              name="More"
+            />
           </div>
         </header>
-        {children}
+        <div className="ml-56 max-xl:ml-16 max-[1160px]:ml-0">{children}</div>
         <footer className="border-t z-10 sticky bottom-0 hidden max-md:flex bg-white justify-around py-3">
           <button>
             <GoHomeFill className="text-[160%]" />
