@@ -1,7 +1,5 @@
 import React from "react";
 import Image from "next/image";
-import ig from "../../../public/imgs/Instagram_logo.svg.png";
-import Link from "next/link";
 import { GrFavorite } from "react-icons/gr";
 import { GoHomeFill } from "react-icons/go";
 import { MdOutlineExplore } from "react-icons/md";
@@ -14,6 +12,7 @@ import { FaThreads } from "react-icons/fa6";
 import { AiOutlineMenu } from "react-icons/ai";
 import { GrInstagram } from "react-icons/gr";
 import { IoSearch } from "react-icons/io5";
+import { GoHome } from "react-icons/go";
 
 export default function MainLayout({
   children,
@@ -23,18 +22,18 @@ export default function MainLayout({
   return (
     <html lang="en">
       <body className="no-scrollbar">
-        <header className="w-56 max-xl:w-16 max-md:hidden border-r flex flex-col h-[100vh] fixed justify-between">
+        <header className="z-10 bg-white w-56 max-xl:w-16 max-md:hidden border-r flex flex-col h-[100vh] fixed justify-between">
           <div className="w-full">
-            <div className="h-14 w-full flex items-center px-4 my-4">
+            <button className="h-14 w-full flex items-center px-4 my-4">
               <Image
                 src={ig2}
                 alt="anh"
-                width={120}
+                width={100}
                 height={20}
                 className="max-xl:hidden"
               />
               <GrInstagram className="hidden max-xl:block text-[160%]" />
-            </div>
+            </button>
             <ItemNavbar
               selected={true}
               icon={GoHomeFill as IconType}
@@ -84,10 +83,10 @@ export default function MainLayout({
             />
           </div>
         </header>
-        <div className="ml-56 max-xl:ml-16 max-[1160px]:ml-0">{children}</div>
+        <div className="ml-56 max-xl:ml-16 max-md:ml-0 z-0">{children}</div>
         <footer className="border-t z-10 sticky bottom-0 hidden max-md:flex bg-white justify-around py-3">
           <button>
-            <GoHomeFill className="text-[160%]" />
+            <GoHome className="text-[160%]" />
           </button>
           <button>
             <MdOutlineExplore className="text-[160%]" />
