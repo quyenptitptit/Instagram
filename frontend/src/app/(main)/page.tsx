@@ -9,10 +9,15 @@ import ItemPost from "@/components/ItemPost";
 import ModalPost from "@/components/ModalPost";
 import ItemUser from "@/components/ItemUser";
 import Link from "next/link";
+import { useSession } from "next-auth/react";
 
 export interface IAppProps {}
 
 export default function Home(props: IAppProps) {
+  const { data } = useSession();
+  if(data) {
+    console.log(data)
+  }
   const [modal, setModal] = useState(false);
   return (
     <div>

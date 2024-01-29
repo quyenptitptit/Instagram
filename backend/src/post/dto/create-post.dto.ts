@@ -1,13 +1,13 @@
-import { IsEmpty } from "class-validator"
+import { IsNotEmpty } from "class-validator"
 
 
 export class CreatePostDto {
-    @IsEmpty()
+    @IsNotEmpty()
     img: string[]
 
-    @IsEmpty()
+    @IsNotEmpty()
     caption: string
 
-    @IsEmpty()
+    @IsNotEmpty()
     author: string 
 }

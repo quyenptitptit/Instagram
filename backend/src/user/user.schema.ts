@@ -8,7 +8,7 @@ export class User {
   @Prop({ required: true, minlength: 6, maxlength: 20, unique: true })
   username: string;
 
-  @Prop({ required: true, minlength: 6, maxlength: 20, select: false })
+  @Prop({ minlength: 6, maxlength: 20, select: false })
   password: string;
 
   @Prop({
@@ -33,22 +33,22 @@ export class User {
   @Prop({enum: GENDER})
   gender: string;
 
-  @Prop()
+  @Prop({default: ''})
   country: string;
 
-  @Prop()
+  @Prop({default: ''})
   bio: string;
 
-  @Prop({ type: mongoose.Schema.Types.ObjectId, ref: 'Post' })
+  @Prop({ type: mongoose.Schema.Types.ObjectId, ref: 'Post', default: [] })
   posts: Post[];
 
-  @Prop([String])
+  @Prop({type: [String], default: []})
   following: string[];
 
-  @Prop([String])
+  @Prop({type: [String], default: []})
   follower: string[];
 
-  @Prop({ type: mongoose.Schema.Types.ObjectId, ref: 'Post' })
+  @Prop({ type: mongoose.Schema.Types.ObjectId, ref: 'Post', default: [] })
   saved: Post[];
 }
 
