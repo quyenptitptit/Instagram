@@ -2,7 +2,8 @@ import NextAuth, { AuthOptions, Session } from "next-auth";
 import GoogleProvider from "next-auth/providers/google";
 import FacebookProvider from "next-auth/providers/facebook";
 import CredentialsProvider from "next-auth/providers/credentials";
-export const authOptions: AuthOptions = {
+
+const authOptions: AuthOptions = {
   providers: [
     GoogleProvider({
       clientId:
@@ -97,9 +98,13 @@ export const authOptions: AuthOptions = {
       return token;
     },
   },
-  // pages: {
-  //   signIn: "/sign-in",
-  // },
-  // secret: process.env.NEXTAUTH_SECRET
+  pages: {
+    signIn: "/sign-in",
+  },
+  secret: process.env.NEXTAUTH_SECRET,
+  debug: process.env.NODE_ENV === "development",
 };
-export default NextAuth(authOptions);
+
+const handler = NextAuth(authOptions);
+
+export { handler as GET, handler as POST };
