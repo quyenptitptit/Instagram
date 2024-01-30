@@ -1,7 +1,7 @@
 import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose';
 import mongoose from 'mongoose';
 import { Comment } from 'src/comment/comment.schema';
-import { User } from 'src/user/user.schema';
+import { User } from 'src/user/interfaces/user.interface';
 
 // export const PostSchema = new mongoose.Schema({
 //     img: String,

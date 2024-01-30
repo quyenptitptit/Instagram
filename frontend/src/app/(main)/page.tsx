@@ -45,8 +45,8 @@ export default function Home(props: IAppProps) {
         <div className="w-80 max-[1160px]:hidden text-sm ml-16">
           <div className="my-3">
             <ItemUser
-              src="https://i.pinimg.com/564x/2a/b2/64/2ab26454f987aaa46d4ffea1272d8d65.jpg"
-              name="qmei.201"
+              src={data?.user?.image || "https://cdn.pixabay.com/photo/2016/08/08/09/17/avatar-1577909_960_720.png"}
+              name={data?.user?.name || ""}
             />
           </div>
           <div className="flex justify-between">

@@ -3,7 +3,7 @@ import Image from "next/image";
 
 export interface IItemUserProps {
   src: string;
-  name: string;
+  name?: string;
   suggested?: boolean;
 }
 

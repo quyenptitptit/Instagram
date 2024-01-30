@@ -9,6 +9,13 @@ const authOptions: AuthOptions = {
       clientId:
         "553387708630-sa90dvfrrh58moqbo9hu0bcnoget04kd.apps.googleusercontent.com",
       clientSecret: "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",
+      authorization: {
+        params: {
+          prompt: "consent",
+          access_type: "offline",
+          response_type: "code",
+        },
+      },
       profile: (profile, tokens) => {
         if (profile) {
           const user = {
@@ -29,8 +36,8 @@ const authOptions: AuthOptions = {
       },
     }),
     FacebookProvider({
-      clientId: "908224967429262",
-      clientSecret: "dfb7b5afc6e4ad2fd1dea147be48d49e",
+      clientId: "904732047792268",
+      clientSecret: "f0d109da523014e2e99b96eb81766ade",
     }),
     // CredentialsProvider({
     //   name: "Credentials",
@@ -82,7 +89,8 @@ const authOptions: AuthOptions = {
           id: token.id,
           username: token.username,
           email: token.email,
-          name: `${token?.firstName} ${token?.lastName}`,
+          name: token.name,
+          // name: `${token?.firstName} ${token?.lastName}`,
           image: token.image,
         },
         expires: session.expires,
